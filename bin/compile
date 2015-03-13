@@ -61,14 +61,15 @@ export PATH
 
 cd $build
 
-if [ ! -e "rebar" ]; then
-  echo "-----> Installing Rebar from buildpack"
-  cp ${bpdir}/opt/rebar ./
+if [ ! -e "rebar3" ]; then
+  echo "-----> Installing Rebar3 from rebar3.org nightly"
+  curl -o rebar3 https://s3.amazonaws.com/rebar3/rebar3
+  chmod +x rebar3
 fi
 
-echo "-----> Building with Rebar"
+echo "-----> Building release with Rebar3"
 unset GIT_DIR
-./rebar get-deps compile 2>&1 | sed -u 's/^/       /'
+./rebar3 release 2>&1 | sed -u 's/^/       /'
 if [ ${PIPESTATUS[0]} -ne 0 ]; then
   echo "-----> Build failed"
   exit 1

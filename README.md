@@ -1,14 +1,14 @@
 # Heroku buildpack: Erlang
 
-This is a Heroku buildpack for Erlang apps. It uses [Rebar](https://github.com/basho/rebar).
+This is a Heroku buildpack for Erlang apps. It uses [Rebar3](https://www.rebar3.org) with releases *exclusively*.
 
 ### Configure your Heroku App
 
-    $ heroku config:add BUILDPACK_URL="https://github.com/heroku/heroku-buildpack-erlang.git" -a YOUR_APP
+    $ heroku config:add BUILDPACK_URL="https://github.com/ferd/heroku-buildpack-erlang.git" -a YOUR_APP
 
 or
 
-    $ heroku create --buildpack "https://github.com/heroku/heroku-buildpack-erlang.git"
+    $ heroku create --buildpack "https://github.com/ferd/heroku-buildpack-erlang.git"
 
 ### Select an Erlang version
 
